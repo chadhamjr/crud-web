@@ -1,0 +1,26 @@
+{# templates/author/list.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Authors</title>
+</head>
+<body>
+<h1>List of Authors</h1>
+
+{% if authors is defined and authors is not empty %}
+    <ul>
+        {% for author in authors %}
+            <li>
+                <a href="{{ path('author_details', {'id': author.id}) }}">Details</a>
+                {{ author.username|upper }} ({{ author.nb_books }} books)
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Total Authors: {{ totalAuthors }}</p>
+    <p>Total Books: {{ totalBooks }}</p>
+{% else %}
+    <p>No authors available.</p>
+{% endif %}
+</body>
+</html>

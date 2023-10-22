@@ -1,0 +1,11 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+student_index:
+    path: /students
+    controller: App\Controller\StudentController::index
+go_to_index:
+     path: /teacher/go-to-index
+     controller: App\Controller\TeacherController::goToIndex

@@ -1,0 +1,36 @@
+{% block body %}
+	<style>
+		table,
+		th,
+		td {
+			border: 1px solid black;
+		}
+	</style>
+	<h1>Liste des etudiants</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nom
+				</th>
+				<th>Email</th>
+				<th>age</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in response %}
+				<tr>
+					<td>{{ i.name }}</td>
+					<td>{{ i.email }}</td>
+					<td>{{i.age}}</td>
+					<td>
+						<a href="{{path('modif',{'id':i.id})}}">Update</a>
+						|
+						<a href="{{path('remove',{'id':i.id})}}">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{path('addF')}}">Add</a>
+{% endblock %}
